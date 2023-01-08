@@ -8,7 +8,7 @@ db.once("open", ()=> {
     console.log("Conexão com banco feita com sucesso")
 })
 
-app.use(express.json()) // converte tudo para Json
+app.use(express.json()) // consverte tudo para Json
 routes(app);
 
-export default app
+export default app;
