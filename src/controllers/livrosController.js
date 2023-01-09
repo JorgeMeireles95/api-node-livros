@@ -17,8 +17,8 @@ class LivroController{
     static listarLivroPorId = (req, res) =>{
         const id = req.params.id;
         livros.findById(id)
-        .populate('autor', 'nome')
-        .populate('editora', 'nome')
+        .populate('autor', 'nome') // seleciona o atributos que serão mostrado do objeto autor
+        .populate('editora') // nesse caso, mostro todo objeto editora
         .exec((err, livros ) => {
             if(err){
              res.status(400).send({message: err.message + 'livro não encontrado'})
@@ -65,15 +65,9 @@ class LivroController{
         })
     }
      
-    static listarLivroPorEditora = (req, res) => {
-        const editora = req.query.editora
-        livros.find({'editora': editora}, {}, (err, livros) => {
-          res.status(200).send(livros);
-    
-        })
-      }
-     
-   
+
+
+
 
 }
 

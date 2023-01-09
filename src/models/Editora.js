@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 const editoraShema = new mongoose.Schema(
     {
          id:{type: String},
-         nome: {type: String, required: true}
+         nome: {type: String, required: true},
+         endereco: {type: String}
     }
 );
 

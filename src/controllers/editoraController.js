@@ -3,12 +3,12 @@ import editoras from '../models/Editora.js';
 class EditoraController{
 
 static listarEditoras = (req, res) => {
-    editoras.find((err, editoras)=>{
+    editoras.find((err, editoras) =>{
         res.status(200).json(editoras)
-    })
+   })
+ }
 
-  
-}
+
 
 
 static listarEditoraPorId = (req, res) =>{
@@ -25,15 +25,16 @@ static listarEditoraPorId = (req, res) =>{
 
 
 static cadastrarEditora = (req, res) =>{
-    let editora = new editoras(req.body);
-    editora.save((err) => {
+    let editoras = new editora(req.body);
+    editoras.save((err) => {
         if(err){
             res.status(500).send({message: `${err.message} cadastramento não realizado`})
         }else{
-            res.status(201).send(editora.toJSON())
+            res.status(201).send(editoras.toJSON())
         }
     })
 }
+
 
 
 static atualizarEditora = (req, res) => {
@@ -51,7 +52,7 @@ static atualizarEditora = (req, res) => {
 static excluirEditora = (req, res) =>{
     const id = req.params.id;
 
-    editoras.findByIdAndDelete(id, (erro)=> {
+    editoras.findByIdAndDelete(id, (err)=> {
         if(err){
             res.status(500).send({message: err.message}) 
         } else {
